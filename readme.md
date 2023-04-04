@@ -13,6 +13,6 @@
         }
 
 
-<p>Foi utilizado apenas javascript, como objetivo de entender na sua forma pura as dificulde em trabalhar com a linguagem de progração de tipagem fraca, assim, podendo entender melhor o typescript e suas diferenças  </p>
+<p>Foi utilizado apenas javascript, como objetivo de entender na sua forma pura as dificuldades em trabalhar com a linguagem de progração de tipagem fraca, assim, podendo entender melhor o typescript e suas diferenças  </p>
 
 <p>Projeto segue em fase de construção </p>
