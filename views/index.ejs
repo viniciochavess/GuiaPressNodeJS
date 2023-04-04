@@ -1,0 +1,60 @@
+
+
+</head>
+
+<body>
+
+<%- include('./includes/navbar') %>
+
+
+<br>
+
+<h5 class="text-center">Todos os artigos</h5>
+<%articles.forEach((item)=>{%>
+
+    <div class="container">
+        
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h5><%= item.title %></h5>
+            </div>
+            <div class="card-body">
+                <p></p>
+            </div>
+            <div class="card-footer">
+                <a href="/articles/view/<%= item.slug %>" class="btn btn-success"> Ler Artigo </a>
+                
+            </div>
+        </div>
+    </div>
+
+
+<%})%>
+
+
+<div class="container">
+    
+    <% if(numPage > -1 && next){%>
+        
+        <a style="float:right" class="btn btn-success" href="/pages/<%=numPage +1%>">Próximo</a>
+    
+    <%}%>
+
+    <% if(numPage > 0 ){%>
+        
+        <a style="float:left" class="btn btn-warning" href="/pages/<%=numPage -1%>">Voltar</a>
+    
+    <%}%>
+
+
+</div>
+
+   
+
+
+
+
+
+
+<%- include('./includes/footer') %>

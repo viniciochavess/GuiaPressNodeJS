@@ -1,0 +1,66 @@
+<%- include("../../includes/head.ejs") %>
+
+</head>
+
+<%- include("../../includes/navbar.ejs") %>
+
+<div class="container">
+
+    <h5 class="text-center">Lista de produtos</h5>
+    
+        <a  href="/admin/categories/new">
+            <button class="btn btn-success" >Nova Categoria</button>
+        </a>
+        
+   
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Açoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% item.forEach(category=>{ %> 
+                
+                <tr>
+                    <th><%=category.id%></th>
+                    <th><%=category.title%></th>
+                    <th><%=category.slug%></th>
+                    
+                    <th>
+                      <a class="btn btn-warning" href="/categories/edit/<%=category.id%>">Editar</a>
+                        <form method="post" action="/categories/delete" onsubmit="confirmDelete(event,this)" style="display: inline;">
+                            <input type="hidden" name="id" value=<%=category.id%> >
+                          
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+
+                       
+                            
+                        
+                        
+                    </th>
+                </tr>
+                
+            
+            <%}) %>
+          
+        </tbody>
+        
+    </table>
+    
+</div>
+<%- include("../../includes/footer.ejs") %>
+
+<script>
+    function confirmDelete(event, form){
+        event.preventDefault();
+       let result = confirm("Você confirma a deleção")
+       if(result){
+        form.submit()
+       }
+    }
+</script>

@@ -1,0 +1,68 @@
+<%- include("../../includes/head.ejs") %>
+
+</head>
+
+<%- include("../../includes/navbar.ejs") %>
+
+
+
+<div class="container">
+
+    <h5 class="text-center">Lista de Artigo</h5>
+    
+        <a  href="/admin/articles/new">
+            <button class="btn btn-success" >Novo Artigo</button>
+            
+        </a>
+        
+    
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Categoria</th>
+                <th>Açoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% item.forEach((item)=>{%> 
+                <tr>
+                    <th><%= item.id %></th>
+                    <th><%= item.title %></th>
+                    <th><%= item.slug %></th>
+                    <th><%= item.category.title %></th>
+                    
+                    
+                    <th>
+                        <a  class="btn btn-warning" href="/admin/article/edit/<%= item.id %>">Editar</a>
+                        <form action="/admin/article/delete" method="post" style="display:inline-block" onsubmit="confirmDelete(event,this)">
+                                                                                                        
+                            <input type="hidden" name="id" value=<%= item.id %> >
+                            <button class="btn btn-danger" type="submit">Deletar</button>
+                        </form>
+                    </th>
+
+                </tr>   
+                
+            <%}) %>
+          
+          
+        </tbody>
+        
+    </table>
+    
+</div>
+<%- include("../../includes/footer.ejs") %>
+
+
+<script>
+    function confirmDelete(event, form){
+        event.preventDefault();
+       let result = confirm("Você confirma a deleção")
+       if(result){
+        form.submit()
+       }
+    }
+</script>

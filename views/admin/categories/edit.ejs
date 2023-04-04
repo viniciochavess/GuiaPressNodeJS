@@ -1,0 +1,33 @@
+<%- include("../../includes/head.ejs") %>
+
+</head>
+
+<%- include("../../includes/navbar.ejs") %>
+
+
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Categoria</h2>
+        </div>
+        <div class="card-body">
+            <form action="/categories/update" method="post">
+                <input type="hidden" name="id" value="<%= id.id %>">
+                <input  class="form-control" type="text" name="title" placeholder="Defina o  título da categoria" value="<%= id.title %>">
+                <br>
+                <button class="btn btn-success">Confirmar</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<%- include("../../includes/footer.ejs") %>
+
